@@ -12,3 +12,5 @@ por exemplo, com o Keil e o IAR.
 
 O objetivo é ter um ponto de partida para outros projetos. Alterações podem ser feitas através do CubeMX para que o projeto 
 seja ajustado para execução de demais tarefas, adicionando outras funcionalidades.
+
+Foi utilizado o CubeMX versão 5.0.
