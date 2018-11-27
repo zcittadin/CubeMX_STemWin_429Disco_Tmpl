@@ -45,15 +45,13 @@
 #include "GUI_App.h"
 #include "GUI.h"
 
+extern void CreateWindow(void);
+
 void GRAPHICS_MainTask(void) {
 
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
-  /* Hello Word example */
-    GUI_Clear();
-    GUI_SetColor(GUI_WHITE);
-    GUI_SetFont(&GUI_Font32_1);
-    GUI_DispStringAt("Hello world!", (LCD_GetXSize()-150)/2, (LCD_GetYSize()-20)/2);
+	CreateWindow();
    
 /* USER CODE END GRAPHICS_MainTask */
   while(1)

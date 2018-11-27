@@ -1,11 +1,13 @@
-/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    stm32f4xx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
+  * @file    stm32f429i_discovery_ts.h
+  * @author  MCD Application Team
+  * @brief   This file contains all the functions prototypes for the
+  *          stm32f429i_discovery_ts.c driver.
   ******************************************************************************
+  * @attention
   *
-  * COPYRIGHT(c) 2018 STMicroelectronics
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -30,56 +32,101 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */
-/* USER CODE END Header */
+  */ 
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32F4xx_IT_H
-#define __STM32F4xx_IT_H
+#ifndef __STM32F429I_DISCOVERY_TS_H
+#define __STM32F429I_DISCOVERY_TS_H
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif   
+   
+/* Includes ------------------------------------------------------------------*/
+#include "stm32f429i_discovery.h"
+/* Include TouchScreen component driver */
+#include "../Components/stmpe811/stmpe811.h"   
+   
+/** @addtogroup BSP
+  * @{
+  */
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+/** @addtogroup STM32F429I_DISCOVERY
+  * @{
+  */ 
 
-/* USER CODE END Includes */
+/** @addtogroup STM32F429I_DISCOVERY_TS
+  * @{
+  */
 
-/* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
+/** @defgroup STM32F429I_DISCOVERY_TS_Exported_Types STM32F429I DISCOVERY TS Exported Types
+  * @{
+  */ 
+typedef struct
+{
+  uint16_t TouchDetected;
+  uint16_t X;
+  uint16_t Y;
+  uint16_t Z;
+}TS_StateTypeDef;
+/**
+  * @}
+  */
 
-/* USER CODE END ET */
+/** @defgroup STM32F429I_DISCOVERY_TS_Exported_Constants STM32F429I DISCOVERY TS Exported Constants
+  * @{
+  */ 
+#define TS_SWAP_NONE                    0x00
+#define TS_SWAP_X                       0x01
+#define TS_SWAP_Y                       0x02
+#define TS_SWAP_XY                      0x04
 
-/* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
+typedef enum 
+{
+  TS_OK       = 0x00,
+  TS_ERROR    = 0x01,
+  TS_TIMEOUT  = 0x02
+}TS_StatusTypeDef;
+/**
+  * @}
+  */
 
-/* USER CODE END EC */
+/** @defgroup STM32F429I_DISCOVERY_TS_Exported_Macros STM32F429I DISCOVERY TS Exported Macros
+  * @{
+  */
+/**
+  * @}
+  */
 
-/* Exported macro ------------------------------------------------------------*/
-/* USER CODE BEGIN EM */
+/** @defgroup STM32F429I_DISCOVERY_TS_Exported_Functions STM32F429I DISCOVERY TS Exported Functions
+  * @{
+  */
+uint8_t BSP_TS_Init(uint16_t XSize, uint16_t YSize);
+void    BSP_TS_GetState(TS_StateTypeDef *TsState);
+uint8_t BSP_TS_ITConfig(void);
+uint8_t BSP_TS_ITGetStatus(void);
+void    BSP_TS_ITClear(void);
 
-/* USER CODE END EM */
+/**
+  * @}
+  */ 
 
-/* Exported functions prototypes ---------------------------------------------*/
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void MemManage_Handler(void);
-void BusFault_Handler(void);
-void UsageFault_Handler(void);
-void DebugMon_Handler(void);
-void TIM3_IRQHandler(void);
-void TIM6_DAC_IRQHandler(void);
-void LTDC_IRQHandler(void);
-void DMA2D_IRQHandler(void);
-/* USER CODE BEGIN EFP */
+/**
+  * @}
+  */
 
-/* USER CODE END EFP */
+/**
+  * @}
+  */ 
+
+/**
+  * @}
+  */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __STM32F4xx_IT_H */
+#endif /* __STM32F429I_DISCOVERY_TS_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
