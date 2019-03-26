@@ -85,7 +85,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     // Initialization of 'Window'
     //
     hItem = pMsg->hWin;
-    WINDOW_SetBkColor(hItem, GUI_MAKE_COLOR(GUI_DARKCYAN));
+    WINDOW_SetBkColor(hItem, GUI_MAKE_COLOR(0xFF0000));
     //
     // Initialization of 'LED'
     //
